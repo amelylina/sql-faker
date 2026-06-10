@@ -51,8 +51,8 @@ the exact same user, forever.** Same seed = same data. As all of these are query
 
 ```bash
 # Clone
-git clone https://github.com/amelylina/itransition-de-task-6.git
-cd itransition-de-task-6
+git clone https://github.com/amelylina/sql-faker.git
+cd sql-faker
 
 # Start Postgres in Docker
 docker compose up -d
@@ -63,8 +63,8 @@ source venv/bin/activate
 pip install -r requirements.txt
 
 # Initialize schema + functions, then load data
-python init_db.py
-python load_data.py
+python init_db.py     # initializes db and runs scripts in sql/
+python load_data.py.  # loads data into db
 
 # Start the web app
 uvicorn app.main:app --reload
@@ -89,9 +89,8 @@ Open http://127.0.0.1:8000.
 	- **01_schema.sql** Tables + indexes 
 	- **02_seed_locales.sql** Locale registry 
 	- **03_seed_small_tables.sql** Titles, colors, phone formats, etc.
-	- **04_seed_middle_names.sql** Derived from first names 
-	- **05_seed_street_names.sql** Hand-curated street roots 
-	- **06_picker_cache.sql** Picker cache table 
+	- **04_seed_street_names.sql** Hand-curated street roots 
+	- **05_picker_cache.sql** Picker cache table 
 	- **10_functions_core.sql** PRNG primitives 
 	- **11_functions_picker_cache.sql** Cache rebuild function   
 	- **20_functions_pickers.sql** Weighted pickers per lookup table 
