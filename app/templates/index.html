@@ -18,7 +18,7 @@
 
         <label>
             Seed
-            <input type="number" name="seed" value="{{ seed if seed is not none else 42 }}" required>
+            <input type="number" name="seed" value="{{ seed if seed is not none else 42 }}" min="1" max = "1_000_000" required>
         </label>
 
         <label>

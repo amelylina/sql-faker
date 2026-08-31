@@ -1,5 +1,5 @@
 from pathlib import Path
-from fastapi import FastAPI, Request
+from fastapi import FastAPI, Request, Query
 from fastapi.responses import HTMLResponse
 from fastapi.templating import Jinja2Templates
 
@@ -14,7 +14,7 @@ templates = Jinja2Templates(directory=TEMPLATES_DIR)
 def index(
     request: Request,
     locale: str | None = None,
-    seed: int | None = None,
+    seed: int | None = Query(default=42, ge=1, le=1_000_000),
     batch: int = 0,
     batch_size: int = 10
 ):
